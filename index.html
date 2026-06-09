@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>NEO HUB | Future Innovation Community</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FEFCF5;
+      color: #1A2F1D;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, h4, .logo, .nav-links a, .btn {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    .navbar {
+      background: rgba(255, 252, 240, 0.96);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      border-bottom: 1px solid rgba(60, 80, 50, 0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #2B6E3C, #5B8C5A);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1F3B2C;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #2A7A3C;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: #2A7A3C;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: inline-block;
+      text-decoration: none;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover {
+      background: #1F5E2E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(42, 122, 60, 0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #2A7A3C;
+      color: #2A7A3C;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #2A7A3C;
+      color: white;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(112deg, #E9F5E6 0%, #DDEBD8 100%);
+      position: relative;
+      padding: 80px 0 100px;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #1C3D26;
+      letter-spacing: -1px;
+      line-height: 1.2;
+    }
+
+    .hero .highlight {
+      background: linear-gradient(120deg, #2B6E3C, #4F9F5E);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 24px 0 20px;
+      color: #2A4632;
+    }
+
+    .hero-badge {
+      background: rgba(42, 122, 60, 0.12);
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      margin-top: 12px;
+      color: #1F5E2E;
+    }
+
+    .hero-buttons {
+      margin-top: 32px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* section general */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1C3D26;
+      position: relative;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      color: #4A6652;
+      margin-bottom: 48px;
+      max-width: 750px;
+    }
+
+    .bg-light {
+      background-color: #F8FBF5;
+    }
+
+    /* cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .master-card, .sustainability-card, .partner-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
+      border: 1px solid #E2EBDC;
+    }
+
+    .master-card:hover, .sustainability-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+    }
+
+    .master-card i, .sustainability-card i {
+      font-size: 2.2rem;
+      color: #2A7A3C;
+      margin-bottom: 18px;
+    }
+
+    .master-card h3, .sustainability-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 14px;
+    }
+
+    .feature-list li {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-list i.fa-circle-check {
+      font-size: 0.8rem;
+      color: #2A7A3C;
+    }
+
+    /* about double column */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .mission-vision {
+      background: #ECF6E8;
+      padding: 32px;
+      border-radius: 32px;
+    }
+
+    /* investment section */
+    .investment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .phase-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      border: 1px solid #DAE9D2;
+    }
+
+    /* gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-item {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+      transition: 0.2s;
+      background: #F2F6EE;
+    }
+
+    .gallery-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery-item p {
+      padding: 16px 16px 20px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* contact form */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .contact-info p {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-info i {
+      width: 32px;
+      color: #2A7A3C;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 28px;
+      border: 1px solid #CDDEC4;
+      font-family: 'Inter', sans-serif;
+      background: white;
+    }
+
+    textarea {
+      border-radius: 24px;
+      resize: vertical;
+    }
+
+    footer {
+      background: #1B2F22;
+      color: #D4E6CF;
+      padding: 48px 0 24px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 32px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #3A5542;
+      padding-top: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 14px;
+      }
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .about-grid, .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .hero {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container container">
+      <div class="logo">NEO HUB</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#masterplan">Masterplan</a></li>
+        <li><a href="#sustainability">Sustainability</a></li>
+        <li><a href="#investment">Investment</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <h1>Build the Future.<br><span class="highlight">Live the Future.</span></h1>
+        <p>A self-sustaining innovation community where people live, learn, create, and grow together.<br>NEO HUB is designed to bring together entrepreneurs, creators, professionals, students, innovators, and communities in a nature-inspired ecosystem built for collaboration, learning, wellness, and sustainable growth.</p>
+        <div class="hero-badge">⚡ Build for 1,000 · Reserve for 5,000</div>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Reserve Your Space</a>
+          <a href="#masterplan" class="btn-outline">Explore Masterplan</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <h2 class="section-title">Why NEO HUB?</h2>
+            <p style="font-size:1.05rem; margin-bottom: 20px;">The world is changing faster than ever. Traditional systems were built for a different era. NEO HUB is designed for the future—a place where people can work, learn, build businesses, develop ideas, connect with nature, and create lasting impact.</p>
+            <p>We believe that innovation happens when:</p>
+            <ul class="feature-list" style="margin-top: 12px;">
+              <li><i class="fas fa-check-circle"></i> People collaborate</li>
+              <li><i class="fas fa-check-circle"></i> Ideas are tested</li>
+              <li><i class="fas fa-check-circle"></i> Communities support each other</li>
+              <li><i class="fas fa-check-circle"></i> Nature and technology coexist</li>
+            </ul>
+          </div>
+          <div class="mission-vision">
+            <h3 style="font-size: 1.8rem; font-weight: 600;">✨ Our Mission</h3>
+            <p style="margin: 12px 0 28px;">To create a sustainable innovation ecosystem that empowers people to learn, build, and thrive together.</p>
+            <h3 style="font-size: 1.8rem; font-weight: 600;">🌿 Our Vision</h3>
+            <p>To develop one of the world's most inspiring community-driven innovation hubs where creativity, entrepreneurship, education, wellness, and sustainability come together.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Masterplan Section -->
+    <section id="masterplan">
+      <div class="container">
+        <h2 class="section-title">Masterplan — Ecosystem of Innovation</h2>
+        <p class="section-sub">Spaces designed to nurture collaboration, growth and wellbeing.</p>
+        <div class="cards-grid">
+          <div class="master-card"><i class="fas fa-users"></i><h3>Community Hub</h3><p>The heart of NEO HUB.</p><ul class="feature-list"><li><i class="fas fa-circle-check"></i> Innovation Center</li><li><i class="fas fa-circle-check"></i> Collaboration Spaces</li><li><i class="fas fa-circle-check"></i> Meeting Rooms</li><li><i class="fas fa-circle-check"></i> Startup Support</li><li><i class="fas fa-circle-check"></i> Networking Zones</li></ul></div>
+          <div class="master-card"><i class="fas fa-laptop-code"></i><h3>Co-Working & Learning Center</h3><p>For creators, professionals, entrepreneurs & students.</p><ul class="feature-list"><li><i class="fas fa-circle-check"></i> Shared Workspaces</li><li><i class="fas fa-circle-check"></i> Training Rooms</li><li><i class="fas fa-circle-check"></i> Digital Studios</li><li><i class="fas fa-circle-check"></i> Skill Development Programs</li><li><i class="fas fa-circle-check"></i> Workshops</li></ul></div>
+          <div class="master-card"><i class="fas fa-calendar-alt"></i><h3>Event & Convention Hall</h3><p>Capacity: <strong>1,500 People</strong></p><ul class="feature-list"><li><i class="fas fa-circle-check"></i> Conferences</li><li><i class="fas fa-circle-check"></i> Community Events</li><li><i class="fas fa-circle-check"></i> Exhibitions</li><li><i class="fas fa-circle-check"></i> Startup Summits</li><li><i class="fas fa-circle-check"></i> Cultural Programs</li></ul></div>
+          <div class="master-card"><i class="fas fa-spa"></i><h3>Wellness Center</h3><p>Physical & mental well-being.</p><ul class="feature-list"><li><i class="fas fa-circle-check"></i> Fitness Area</li><li><i class="fas fa-circle-check"></i> Meditation Zones</li><li><i class="fas fa-circle-check"></i> Wellness Programs</li><li><i class="fas fa-circle-check"></i> Outdoor Recreation</li></ul></div>
+          <div class="master-card"><i class="fas fa-utensils"></i><h3>Café & Community Dining</h3><p>A vibrant social space where ideas, conversations, and collaborations happen naturally.</p></div>
+          <div class="master-card"><i class="fas fa-home"></i><h3>Eco Living Spaces</h3><ul class="feature-list"><li><i class="fas fa-tree"></i> Hostels – affordable, community-oriented</li><li><i class="fas fa-leaf"></i> Eco Villas – nature-inspired residences</li></ul></div>
+          <div class="master-card"><i c
