@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEO HUB INDIA — Work. Live. Learn. Innovate.</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:#0d1117;color:white;overflow-x:hidden;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,17,23,0.97);border-bottom:1px solid rgba(34,197,94,0.15);padding:10px 32px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+.nav-left{display:flex;align-items:center;gap:15px;}
+#navLogo{width:55px;height:55px;border-radius:50%;}  /* INCREASED from 40px to 55px */
+.nav-brand{font-size:24px;font-weight:900;letter-spacing:2px;color:white;} /* INCREASED from 20px to 24px */
+.nav-brand span{color:#22c55e;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:14px;font-weight:500;transition:color .3s;}
+.nav-links a:hover{color:#22c55e;}
+.invest-btn{background:#00e676;color:#0a0f1a;padding:8px 22px;border-radius:40px;font-weight:700;text-decoration:none;transition:all .3s;}
+.invest-btn:hover{background:#00c951;transform:scale(1.02);}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f7938,#15a34a,#059669);text-align:center;padding:80px 24px 40px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(21,163,74,0.4) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(245,158,11,0.2) 0%,transparent 50%);pointer-events:none;}
+.hero-inner{max-width:880px;position:relative;z-index:2;}
+#heroLogo{width:250px;height:250px;border-radius:50%;margin-bottom:28px;filter:drop-shadow(0 0 32px rgba(34,197,94,0.5));} /* INCREASED from 200px to 250px */
+.pill{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:9px 22px;border-radius:50px;font-size:13px;font-weight:600;margin-bottom:20px;}
+.hero h1{font-size:clamp(2.2rem,7vw,4.8rem);font-weight:900;line-height:1.1;margin-bottom:18px;}
+.hero h1 em{color:#fbbf24;font-style:normal;}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,0.88);max-width:600px;margin:0 auto 36px;line-height:1.9;}
+.btn{padding:13px 30px;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-block;}
+.btn-gold{background:linear-gradient(135deg,#f59e0b,#d97706);color:#111;box-shadow:0 8px 24px rgba(245,158,11,0.3);}
+.btn-gold:hover{transform:translateY(-2px);}
+.btn-out{background:rgba(255,255,255,0.15);color:white;border:1.5px solid rgba(255,255,255,0.4);}
+.btn-out:hover{background:rgba(255,255,255,0.25);transform:translateY(-2px);}
+
+.stats-bar{background:#0a0f0a;border-bottom:1px solid rgba(34,197,94,0.1);}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);}
+.stat{padding:28px 16px;text-align:center;border-right:1px solid rgba(34,197,94,0.08);}
+.stat:last-child{border-right:none;}
+.stat .n{font-size:1.9rem;font-weight:900;color:#22c55e;}
+.stat .l{font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;}
+
+.section{padding:80px 32px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+.s-tag{font-size:10px;letter-spacing:3px;color:#22c55e;text-transform:uppercase;margin-bottom:8px;}
+.s-title{font-size:2.2rem;font-weight:900;margin-bottom:12px;}
+.s-title span{color:#22c55e;}
+.s-sub{color:rgba(255,255,255,0.65);font-size:1rem;margin-bottom:48px;max-width:680px;line-height:1.8;}
+
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.fcard{padding:32px;border-radius:10px;background:linear-gradient(135deg,rgba(21,163,74,0.12),rgba(15,163,74,0.06));border:1px solid rgba(34,197,94,0.12);transition:all .3s;}
+.fcard:hover{transform:translateY(-4px);border-color:rgba(34,197,94,0.3);}
+.fcard .icon{font-size:2.4rem;margin-bottom:14px;display:block;}
+.fcard h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+.fcard p{color:rgba(255,255,255,0.68);font-size:.9rem;}
+
+.masterplan{padding:80px 32px;background:#080d08;}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:40px;}
+.zcard{padding:26px;border-radius:10px;background:rgba(13,17,23,0.9);border:1px solid rgba(34,197,94,0.1);transition:all .3s;display:flex;gap:14px;}
+.zcard:hover{transform:translateX(4px);}
+.zcard .zi{font-size:2rem;}
+.zcard h3{font-size:1rem;font-weight:700;}
+.zcard p{font-size:.85rem;color:rgba(255,255,255,0.58);}
+.zcard .cap{font-size:.8rem;color:#22c55e;font-weight:700;margin-top:5px;}
+
+.invest{padding:80px 32px;background:#0d1117;}
+.budget-bars{display:flex;flex-direction:column;gap:14px;max-width:700px;}
+.bbar{display:flex;align-items:center;gap:14px;}
+.bbar .lbl{min-width:170px;font-size:.92rem;color:rgba(255,255,255,0.72);}
+.bbar .track{flex:1;height:10px;background:rgba(255,255,255,0.06);border-radius:5px;overflow:hidden;}
+.bbar .fill{height:100%;border-radius:5px;background:linear-gradient(90deg,#22c55e,#fbbf24);}
+.bbar .val{min-width:60px;text-align:right;font-size:.92rem;font-weight:700;color:#fbbf24;}
+
+.govt{padding:80px 32px;background:#080d08;}
+.govt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:40px;}
+.gc{padding:26px;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:8px;}
+.gc:hover{border-color:rgba(59,130,246,0.35);transform:translateY(-4px);}
+.gc .ico{font-size:1.8rem;margin-bottom:10px;}
+.gc h3{font-size:1rem;font-weight:700;color:#93c5fd;margin-bottom:6px;}
+.gc p{font-size:.88rem;color:rgba(255,255,255,0.62);}
+
+.mission{padding:80px 32px;background:linear-gradient(135deg,#059669,#15a34a,#10b981);}
+.mission-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;margin-top:48px;}
+.mission-grid h3{font-size:1.1rem;font-weight:700;color:#fbbf24;margin-bottom:10px;}
+.mission-grid p{color:rgba(255,255,255,0.88);line-height:1.8;}
+
+.cta-sec{padding:80px 32px;text-align:center;background:#0d1117;}
+.cta-sec h2{font-size:2.2rem;font-weight:900;margin-bottom:14px;}
+.cta-sec h2 span{color:#22c55e;}
+.cta-sec p{color:rgba(255,255,255,0.7);max-width:520px;margin:0 auto 28px;}
+.cta-sec .email{display:block;color:#fbbf24;font-size:1.1rem;margin-bottom:24px;text-decoration:none;}
+
+footer{background:#040804;color:rgba(255,255,255,0.3);padding:24px 32px;text-align:center;border-top:1px solid rgba(34,197,94,0.08);font-size:12px;}
+
+@media(max-width:768px){
+  .stats-inner{grid-template-columns:1fr 1fr;}
+  .stat:nth-child(5){grid-column:1/-1;}
+  .section,.masterplan,.invest,.govt,.mission,.cta-sec{padding:56px 20px;}
+  .s-title{font-size:1.7rem;}
+  #heroLogo{width:180px;height:180px;}
+  .hero h1{font-size:2rem;}
+  #navLogo{width:45px;height:45px;}
+  .nav-brand{font-size:20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <canvas id="navLogo" width="80" height="80"></canvas>
+      <div class="nav-brand">NEO <span>HUB</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#why">Why</a></li>
+      <li><a href="#masterplan">Masterplan</a></li>
+      <li><a href="#investment">Investment</a></li>
+      <li><a href="#government">Government</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="investment.html" class="invest-btn">💰 Invest Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <canvas id="heroLogo" width="600" height="600"></canvas>
+    <div class="pill">🚀 South India's First AI Innovation Campus</div>
+    <h1>Build the <em>Future</em>.<br>Live the Future.</h1>
+    <p>A self-sustaining AI-powered innovation ecosystem integrating smart workspaces, startup incubation, wellness, and nature. Wayanad, Kerala.</p>
+    <div class="ctas" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="#contact" class="btn btn-gold">Reserve Your Space</a>
+      <a href="#masterplan" class="btn btn-out">Explore Masterplan</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="n">₹30Cr</div><div class="l">Investment</div></div>
+    <div class="stat"><div class="n">1.9L+</div><div class="l">Sq Ft</div></div>
+    <div class="stat"><div class="n">1,500</div><div class="l">Event Capacity</div></div>
+    <div class="stat"><div class="n">600</div><div class="l">Hostel Beds</div></div>
+    <div class="stat"><div class="n">500+</div><div class="l">Jobs Created</div></div>
+  </div>
+</div>
+
+<section class="section" id="why">
+  <div class="section-inner">
+    <div class="s-tag">Why NEO HUB</div>
+    <h2 class="s-title">Designed for the <span>Future</span></h2>
+    <p class="s-sub">NEO HUB INDIA is a next-generation AI-powered innovation ecosystem integrating sustainability, startup incubation, digital infrastructure, smart workspaces, and community-driven growth.</p>
+    <div class="grid4">
+      <div class="fcard"><span class="icon">🤖</span><h3>AI-First Infrastructure</h3><p>GPU Labs, AI Research Centers and 5G/6G Smart Connectivity</p></div>
+      <div class="fcard"><span class="icon">🌿</span><h3>Nature + Technology</h3><p>Wayanad's natural beauty combined with sustainable architecture</p></div>
+      <div class="fcard"><span class="icon">🚀</span><h3>Startup Ecosystem</h3><p>Accelerator programs, collaboration zones, innovation labs</p></div>
+      <div class="fcard"><span class="icon">⚡</span><h3>Smart Workspaces</h3><p>400-person AI-powered co-working hub with digital studios</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="masterplan" id="masterplan">
+  <div class="section-inner">
+    <div class="s-tag">Campus Design</div>
+    <h2 class="s-title">The <span>Masterplan</span></h2>
+    <p class="s-sub">An integrated 1,90,000+ sq ft campus designed for work, life, learning, and innovation.</p>
+    <div class="grid3">
+      <div class="zcard"><div class="zi">🏢</div><div><h3>Smart Workspace</h3><p>AI-powered co-working and innovation hub</p><div class="cap">40,100 sq ft • 400 pax</div></div></div>
+      <div class="zcard"><div class="zi">🎭</div><div><h3>Event & Convention Hall</h3><p>Conferences, startup summits, exhibitions</p><div class="cap">60,000 sq ft • 1,500 pax</div></div></div>
+      <div class="zcard"><div class="zi">🏠</div><div><h3>The Last Stop Hostels</h3><p>Premium hostel blocks for residents</p><div class="cap">60,000 sq ft • 600 beds</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="invest" id="investment">
+  <div class="section-inner">
+    <div class="s-tag">Investment Structure</div>
+    <h2 class="s-title">₹30 Crore <span>Allocation</span></h2>
+    <p class="s-sub">NEO HUB INDIA is designed as a next-generation AI-powered innovation ecosystem transforming Wayanad into South India's leading AI destination.</p>
+    <div class="budget-bars">
+      <div class="bbar"><div class="lbl">Infrastructure</div><div class="track"><div class="fill" style="width:100%"></div></div><div class="val">₹10 Cr</div></div>
+      <div class="bbar"><div class="lbl">AI Labs & Tech</div><div class="track"><div class="fill" style="width:50%"></div></div><div class="val">₹5 Cr</div></div>
+      <div class="bbar"><div class="lbl">Workspace Development</div><div class="track"><div class="fill" style="width:40%"></div></div><div class="val">₹4 Cr</div></div>
+      <div class="bbar"><div class="lbl">Green Energy</div><div class="track"><div class="fill" style="width:30%"></div></div><div class="val">₹3 Cr</div></div>
+      <div class="bbar"><div class="lbl">Community Facilities</div><div class="track"><div class="fill" style="width:30%"></div></div><div class="val">₹3 Cr</div></div>
+      <div class="bbar"><div class="lbl">Operations Setup</div><div class="track"><div class="fill" style="width:20%"></div></div><div class="val">₹2 Cr</div></div>
+      <div class="bbar"><div class="lbl">Reserve Fund</div><div class="track"><div class="fill" style="width:30%"></div></div><div class="val">₹3 Cr</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="govt" id="government">
+  <div class="section-inner">
+    <div class="s-tag">Government Alignment</div>
+    <h2 class="s-title">Strategic Relevance to <span>Kerala</span></h2>
+    <p class="s-sub">NEO HUB INDIA directly aligns with Kerala's strategic priorities across IT, Tourism, Employment and Sustainable Development.</p>
+    <div class="govt-grid">
+      <div class="gc"><div class="ico">🖥️</div><h3>Kerala IT & AI Ministry</h3><p>AI Research Labs, GPU Clusters, 5G/6G Smart Connectivity</p></div>
+      <div class="gc"><div class="ico">🌿</div><h3>Kerala Tourism Department</h3><p>Innovation Tourism, Wellness Retreats, Conference hosting</p></div>
+      <div class="gc"><div class="ico">👷</div><h3>Employment Generation</h3><p>Direct and indirect employment for 500+ professionals</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="mission" id="mission">
+  <div class="section-inner">
+    <div class="s-tag" style="color:#fbbf24;">Vision & Mission</div>
+    <h2 class="s-title" style="color:white;">Our <span style="color:#fbbf24;">Purpose</span></h2>
+    <div class="mission-grid">
+      <div><h3>Our Mission</h3><p>To create a sustainable innovation ecosystem that empowers people to learn, build, and thrive together in Wayanad, Kerala.</p></div>
+      <div><h3>Our Vision</h3><p>To develop one of the world's most inspiring community-driven innovation hubs where creativity, entrepreneurship, and sustainability converge.</p></div>
+      <div><h3>Exit From the Exist</h3><p>A place designed for those who dare to think differently — to build something meaningful, live purposefully, and innovate for generations.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec" id="contact">
+  <h2>Ready to Build the <span>Future?</span></h2>
+  <p>Whether you're an investor, government partner, entrepreneur, or innovator — there's a place for you at NEO HUB INDIA.</p>
+  <a class="email" href="mailto:maheenasar9@gmail.com">📧 maheenasar9@gmail.com</a>
+  <div class="ctas" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+    <a href="mailto:maheenasar9@gmail.com" class="btn btn-gold">💰 Invest / Partner</a>
+    <a href="investment.html" class="btn btn-out">📈 View Timeline</a>
+  </div>
+  <p style="margin-top:24px;font-size:.82rem;color:rgba(255,255,255,0.25);">Maheen Asar MS | Founder & CEO, NEO HUB INDIA | Wayanad, Kerala</p>
+</section>
+
+<footer>&copy; 2026 NEO HUB INDIA. Work • Live • Learn • Innovate with Nature. | Wayanad, Kerala, India</footer>
+
+<script>
+function drawBadge(cv, t) {
+  var ctx = cv.getContext('2d');
+  var S = cv.width, cx = S/2, cy = S/2, R = S*0.47;
+  ctx.clearRect(0,0,S,S);
+  ctx.save();
+  ctx.shadowColor = 'rgba(0,0,0,0.8)';
+  ctx.shadowBlur = S*0.05;
+  ctx.shadowOffsetY = S*0.015;
+  ctx.beginPath();
+  ctx.arc(cx,cy,R,0,Math.PI*2);
+  ctx.fillStyle = '#000';
+  ctx.fill();
+  ctx.restore();
+  var rim = ctx.createLinearGradient(cx-R,cy-R,cx+R,cy+R);
+  rim.addColorStop(0,'#c0c0c0');
+  rim.addColorStop(0.25,'#f0f0f0');
+  rim.addColorStop(0.5,'#777');
+  rim.addColorStop(0.75,'#e0e0e0');
+  rim.addColorStop(1,'#aaa');
+  ctx.beginPath();
+  ctx.arc(cx,cy,R,0,Math.PI*2);
+  ctx.fillStyle = rim;
+  ctx.fill();
+  var rim2 = ctx.createLinearGradient(cx+R,cy-R,cx-R,cy+R);
+  rim2.addColorStop(0,'#444');
+  rim2.addColorStop(0.5,'#666');
+  rim2.addColorStop(1,'#333');
+  ctx.beginPath();
+  ctx.arc(cx,cy,R*0.96,0,Math.PI*2);
+  ctx.fillStyle = rim2;
+  ctx.fill();
+  var bg = ctx.createRadialGradient(cx-S*0.03,cy-S*0.05,S*0.01,cx,cy,R*0.94);
+  bg.addColorStop(0,'#1c3320');
+  bg.addColorStop(0.4,'#0f1e12');
+  bg.addColorStop(1,'#030a04');
+  ctx.beginPath();
+  ctx.arc(cx,cy,R*0.93,0,Math.PI*2);
+  ctx.fillStyle = bg;
+  ctx.fill();
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx,cy,R*0.93,0,Math.PI*2);
+  ctx.clip();
+  ctx.beginPath();
+  ctx.arc(cx,cy,R*0.9,0,Math.PI*2);
+  ctx.strokeStyle = 'rgba(34,197,94,0.18)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.setLineDash([3,12]);
+  ctx.beginPath();
+  ctx.arc(cx,cy,R*0.84,0,Math.PI*2);
+  ctx.strokeStyle = 'rgba(34,197,94,0.13)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.setLineDash([]);
+  var orbs = [[-38,0.65,2],[12,0.45,1.6],[62,0.28,1.2]];
+  for(var i=0;i<orbs.length;i++){
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.rotate(orbs[i][0]*Math.PI/180);
+    ctx.beginPath();
+    ctx.ellipse(0,0,R*0.67,R*0.23,0,0,Math.PI*2);
+    ctx.strokeStyle = 'rgba(34,197,94,'+orbs[i][1]+')';
+    ctx.lineWidth = orbs[i][2];
+    ctx.stroke();
+    ctx.restore();
+  }
+  ctx.beginPath();
+  ctx.moveTo(cx-R*0.7,cy);
+  ctx.lineTo(cx+R*0.7,cy);
+  ctx.strokeStyle = 'rgba(34,197,94,0.18)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  var au = [[0.32,0.2],[0.25,0.15],[0.18,0.1]];
+  for(var i=0;i<au.length;i++){
+    var a = ctx.createRadialGradient(cx,cy,0,cx,cy,R*au[i][0]);
+    a.addColorStop(0,'rgba(34,197,94,'+au[i][1]+')');
+    a.addColorStop(1,'rgba(34,197,94,0)');
+    ctx.beginPath();
+    ctx.arc(cx,cy,R*au[i][0],0,Math.PI*2);
+    ctx.fillStyle = a;
+    ctx.fill();
+  }
+  var rgs = [[0.2,7,'rgba(34,197,94,0.5)'],[0.14,5,'rgba(74,222,128,0.7)'],[0.09,3,'rgba(134,239,172,0.5)']];
+  for(var i=0;i<rgs.length;i++){
+    ctx.save();
+    ctx.shadowColor = '#22c55e';
+    ctx.shadowBlur = S*0.03;
+    ctx.beginPath();
+    ctx.arc(cx,cy,R*rgs[i][0],0,Math.PI*2);
+    ctx.strokeStyle = rgs[i][2];
+    ctx.lineWidth = rgs[i][1];
+    ctx.stroke();
+    ctx.restore();
+  }
+  var nuc = ctx.createRadialGradient(cx,cy,1,cx,cy,R*0.077);
+  nuc.addColorStop(0,'#fff');
+  nuc.addColorStop(0.2,'#d4ffd4');
+  nuc.addColorStop(0.6,'#22c55e');
+  nuc.addColorStop(1,'#052e12');
+  ctx.save();
+  ctx.shadowColor = '#4ade80';
+  ctx.shadowBlur = S*0.05;
+  ctx.beginPath();
+  ctx.arc(cx,cy,R*0.077,0,Math.PI*2);
+  ctx.fillStyle = nuc;
+  ctx.fill();
+  ctx.restore();
+  ctx.beginPath();
+  ctx.arc(cx,cy,R*0.036,0,Math.PI*2);
+  ctx.fillStyle = 'rgba(255,255,255,0.95)';
+  ctx.fill();
+  var rx = R*0.67, ry = R*0.23;
+  var od = [[t,-38*Math.PI/180,true,S*0.027],[t*0.7+Math.PI,12*Math.PI/180,true,S*0.027],[t*0.5+Math.PI*1.3,62*Math.PI/180,false,S*0.017]];
+  for(var i=0;i<od.length;i++){
+    var angle = od[i][0], tilt = od[i][1], isGold = od[i][2], r = od[i][3];
+    var x = cx + rx*Math.cos(angle)*Math.cos(tilt) - ry*Math.sin(angle)*Math.sin(tilt);
+    var y = cy + rx*Math.cos(angle)*Math.sin(tilt) + ry*Math.sin(angle)*Math.cos(tilt);
+    ctx.save();
+    ctx.shadowColor = isGold ? '#fbbf24' : '#22c55e';
+    ctx.shadowBlur = S*0.04;
+    var g = ctx.createRadialGradient(x-r*0.3,y-r*0.35,1,x,y,r);
+    if(isGold){
+      g.addColorStop(0,'#fffbe0');
+      g.addColorStop(0.4,'#fbbf24');
+      g.addColorStop(1,'#7c2d00');
+    } else {
+      g.addColorStop(0,'#d1fae5');
+      g.addColorStop(0.5,'#22c55e');
+      g.addColorStop(1,'#052e12');
+    }
+    ctx.beginPath();
+    ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle = g;
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(x-r*0.25,y-r*0.28,r*0.3,0,Math.PI*2);
+    ctx.fillStyle = isGold ? 'rgba(255,251,224,0.55)' : 'rgba(209,250,229,0.6)';
+    ctx.fill();
+    ctx.restore();
+  }
+  ctx.font = '900 ' + Math.round(S*0.065) + 'px "Segoe UI",Arial,sans-serif';
+  ctx.fillStyle = 'rgba(220,230,220,0.95)';
+  ctx.shadowColor = 'rgba(0,0,0,0.5)';
+  ctx.shadowBlur = 4;
+  var txt = 'NEO HUB', arcR = R*0.73, total = txt.length*0.185, start = -Math.PI/2 - total/2;
+  for(var i=0;i<txt.length;i++){
+    var a = start + i*0.195 + 0.09;
+    ctx.save();
+    ctx.translate(cx + arcR*Math.cos(a), cy + arcR*Math.sin(a));
+    ctx.rotate(a + Math.PI/2);
+    ctx.fillText(txt[i],0,0);
+    ctx.restore();
+  }
+  ctx.font = '500 ' + Math.round(S*0.023) + 'px "Segoe UI",Arial,sans-serif';
+  ctx.fillStyle = 'rgba(34,197,94,0.8)';
+  ctx.shadowBlur = 0;
+  var tag = 'WORK • LIVE • LEARN • INNOVATE', tagR = R*0.73, tT = tag.length*0.076, tS = Math.PI/2 - tT/2 + 0.14;
+  for(var i=0;i<tag.length;i++){
+    var a = tS + i*0.077;
+    ctx.save();
+    ctx.translate(cx + tagR*Math.cos(a), cy + tagR*Math.sin(a));
+    ctx.rotate(a - Math.PI/2 + Math.PI);
+    ctx.fillText(tag[i],0,0);
+    ctx.restore();
+  }
+  ctx.restore();
+}
+
+var t = 0;
+function animate() {
+  requestAnimationFrame(animate);
+  t += 0.008;
+  drawBadge(document.getElementById('heroLogo'), t);
+  drawBadge(document.getElementById('navLogo'), t);
+}
+animate();
+</script>
+</body>
+</html>
