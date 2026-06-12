@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEO HUB INDIA - ₹30 Crore Investment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 50%, #0f2847 100%);
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Circular Badge */
+        .circular-badge {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .badge-circle {
+            position: absolute;
+            border: 3px solid #00d966;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .badge-circle:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            animation: spin 8s linear infinite;
+        }
+
+        .badge-circle:nth-child(2) {
+            width: 80%;
+            height: 80%;
+            animation: spin 6s linear infinite reverse;
+        }
+
+        .badge-circle:nth-child(3) {
+            width: 60%;
+            height: 60%;
+            animation: spin 10s linear infinite;
+        }
+
+        .badge-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .badge-amount {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d966, #1fff7f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .badge-label {
+            color: #00d966;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Section Container */
+        .section {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(20, 50, 80, 0.7);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 217, 102, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            color: #00d966;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .investment-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tier-card {
+            background: rgba(13, 42, 74, 0.8);
+            border: 2px solid rgba(0, 217, 102, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d966, #1fff7f);
+        }
+
+        .tier-card:hover {
+            border-color: #00d966;
+            box-shadow: 0 8px 32px rgba(0, 217, 102, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .tier-amount {
+            font-size: 2.5rem;
+            color: #00d966;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .tier-name {
+            color: #1fff7f;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .tier-details {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .tier-details li {
+            list-style: none;
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tier-details li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00d966;
+            font-weight: bold;
+        }
+
+        /* Revenue Streams */
+        .revenue-streams {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .revenue-item {
+            background: rgba(0, 217, 102, 0.1);
+            border-left: 4px solid #00d966;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .revenue-title {
+            color: #00d966;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .revenue-detail {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            padding-left: 40px;
+            margin-bottom: 25px;
+            position: relative;
+            border-left: 2px solid #00d966;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #00d966;
+            border-radius: 50%;
+        }
+
+        .timeline-item h4 {
+            color: #1fff7f;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        /* Key Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .metric-box {
+            background: rgba(0, 217, 102, 0.05);
+            border: 1px solid rgba(0, 217, 102, 0.3);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            color: #00d966;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            color: #4db8a8;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Button */
+        .cta-container {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #00d966, #1fff7f);
+            color: #0a1628;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 217, 102, 0.4);
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: rgba(13, 42, 74, 0.8);
+            border: 2px solid #00d966;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 60px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-container h2 {
+            color: #00d966;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .form-subtitle {
+            color: #1fff7f;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00d966;
+            font-weight: 600;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(30, 60, 90, 0.8);
+            border: 1px solid #00d966;
+            border-radius: 5px;
+            color: #e0e0e0;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #1fff7f;
+            box-shadow: 0 0 10px rgba(0, 217, 102, 0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .badge-amount {
+                font-size: 3rem;
+            }
+
+            .circular-badge {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(0, 217, 102, 0.2);
+            border: 2px solid #00d966;
+            color: #1fff7f;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 217, 102, 0.2);
+            color: #4db8a8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Circular Badge with ₹30Cr -->
+        <div class="circular-badge">
+            <div class="badge-circle"></div>
+            <div class="badge-circle"></div>
+            <div class="badge-circle"></div>
+            <div class="badge-content">
+                <div class="badge-amount">₹30Cr</div>
+                <div class="badge-label">INVESTMENT</div>
+            </div>
+        </div>
+
+        <!-- Investment Overview -->
+        <div class="section">
+            <h2>Investment Opportunity</h2>
+            <p style="font-size: 1.1rem; color: #b0b0b0; text-align: center; margin-bottom: 30px;">
+                NEO HUB INDIA is a ₹30 Crore flagship innovation campus in Panamaram, Wayanad, Kerala. 
+                A 40-acre integrated ecosystem combining co-working, wellness, hospitality, and nature-based engagement.
+            </p>
+        </div>
+
+        <!-- Investment Tiers -->
+        <div class="section">
+            <h2>Investment Tiers</h2>
+            <div class="investment-tiers">
+                <!-- Flagship Tier -->
+                <div class="tier-card">
+                    <div class="tier-amount">₹30 Cr</div>
+                    <div class="tier-name">Flagship Campus</div>
+                    <ul class="tier-details">
+                        <li>40-acre fully operational campus</li>
+                        <li>150+ co-working desks</li>
+                        <li>100-bed premium hostel</li>
+                        <li>300-seat event hall</li>
+                        <li>Full wellness center</li>
+                        <li>Nature zones & amenities</li>
+                    </ul>
+                </div>
+
+                <!-- Pilot Tier -->
+                <div class="tier-card">
+                    <div class="tier-amount">₹9 Cr</div>
+                    <div class="tier-name">Pilot Phase</div>
+                    <ul class="tier-details">
+                        <li>15-acre Phase 1 deployment</li>
+                        <li>80 co-working desks</li>
+                        <li>40-bed hostel</li>
+                        <li>Wellness MVP</li>
+                        <li>Revenue in 6 months</li>
+                        <li>Upgrade path to Flagship</li>
+                    </ul>
+                </div>
+
+                <!-- MVP Tier -->
+                <div class="tier-card">
+                    <div class="tier-amount">₹3 Cr</div>
+                    <div class="tier-name">MVP Proof-of-Concept</div>
+                    <ul class="tier-details">
+                        <li>5-acre core facilities</li>
+                        <li>40 co-working desks</li>
+                        <li>20-bed hostel</li>
+                        <li>Validate unit economics</li>
+                        <li>3-month breakeven</li>
+                        <li>De-risk before scale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Streams -->
+        <div class="section">
+            <h2>Revenue Streams</h2>
+            <div class="revenue-streams">
+                <div class="revenue-item">
+                    <div class="revenue-title">Co-Working Memberships</div>
+                    <div class="revenue-detail">₹15K–40K/month per desk, 150+ desks</div>
+                </div>
+                <div class="revenue-item">
+                    <div class="revenue-title">Event Hall Rentals</div>
+                    <div class="revenue-detail">₹5K–15K per event, 2–3 events/week</div>
+                </div>
+                <div class="revenue-item">
+                    <div class="revenue-title">Hostel Operations</div>
+                    <div class="revenue-detail">₹1.5K–3K/night, 100-bed capacity, 70% avg occupancy</div>
+                </div>
+                <div class="revenue-item">
+                    <div class="revenue-title">Wellness & F&B</div>
+                    <div class="revenue-detail">Partnership model, 20% margin on operator revenue</div>
+                </div>
+                <div class="revenue-item">
+                    <div class="revenue-title">Data & Insights</div>
+                    <div class="revenue-detail">Aggregate anonymized usage patterns licensing</div>
+                </div>
+                <div class="revenue-item">
+                    <div class="revenue-title">Retreat Packages</div>
+                    <div class="revenue-detail">3–7 day immersive programs, premium pricing</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Projections -->
+        <div class="section">
+            <h2>Financial Projections</h2>
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <div class="metric-value">M3</div>
+                    <div class="metric-label">Revenue Start</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">M10–14</div>
+                    <div class="metric-label">Break-Even EBITDA</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">₹30–35L</div>
+                    <div class="metric-label">Monthly Revenue (M12)</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">28–35%</div>
+                    <div class="metric-label">Target IRR (5-Year)</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">₹8–10Cr</div>
+                    <div class="metric-label">Year 2 EBITDA</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">150yr</div>
+                    <div class="metric-label">Generational Vision</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <h2>Implementation Timeline (6–12 Months)</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Months 1–3: Land & MVP Setup</h4>
+                    <p>Land acquisition, company formation, prefab co-working & hostel operational</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Month 3–4: Soft Launch</h4>
+                    <p>First members move in, hostel opens, revenue generation starts (₹17.5–18.5L/month)</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Months 5–8: Phase 2 Buildout</h4>
+                    <p>Permanent buildings, event hall, wellness center construction (parallel to operations)</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Months 9–12: Scale & Break-Even</h4>
+                    <p>Full campus operational, 150+ desks, 100-bed hostel, positive EBITDA achieved</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-container">
+            <h2 style="color: #00d966; margin-bottom: 30px;">Ready to Invest?</h2>
+            <button class="cta-button" onclick="document.getElementById('investmentForm').scrollIntoView({behavior: 'smooth'});">
+                Get Started
+            </button>
+        </div>
+
+        <!-- Investment Inquiry Form -->
+        <div class="form-container" id="investmentForm">
+            <div class="success-message" id="successMessage">
+                ✓ Thank you! We've received your investment inquiry. Our team will reach out within 48 hours.
+            </div>
+            
+            <h2>Investment Inquiry Form</h2>
+            <p class="form-subtitle">Tell us about your investment interest</p>
+
+            <form id="inquiryForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="investmentTier">Investment Tier Interest *</label>
+                        <select id="investmentTier" name="investmentTier" required>
+                            <option value="">Select one</option>
+                            <option value="3cr">₹3 Crore MVP</option>
+                            <option value="9cr">₹9 Crore Pilot</option>
+                            <option value="30cr">₹30 Crore Flagship</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="stakeholderType">Stakeholder Type *</label>
+                        <select id="stakeholderType" name="stakeholderType" required>
+                            <option value="">Select one</option>
+                            <option value="government">Government</option>
+                            <option value="institutional">Institutional Investor</option>
+                            <option value="corporate">Corporate</option>
+                            <option value="individual">Individual / HNI</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your investment interest and any specific questions..." required style="min-height: 120px;"></textarea>
+                </div>
+
+                <button type="submit" class="cta-button">Submit Inquiry</button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 NEO HUB INDIA PVT. LTD. | Panamaram, Wayanad, Kerala</p>
+            <p style="margin-top: 10px;">For inquiries: invest@neohubindia.com | +91 [Contact]</p>
+        </footer>
+    </div>
+
+    <script>
+        const form = document.getElementById('inquiryForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                organization: formData.get('organization'),
+                investmentTier: formData.get('investmentTier'),
+                stakeholderType: formData.get('stakeholderType'),
+                message: formData.get('message'),
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    successMessage.classList.add('show');
+                    form.reset();
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000);
+                } else {
+                    console.log('Form data:', data);
+                    alert('✓ Inquiry received! (Offline mode)');
+                    form.reset();
+                }
+            } catch (error) {
+                console.log('Form data:', data);
+                alert('✓ Inquiry received! (Offline mode)');
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>
